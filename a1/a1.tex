@@ -7,7 +7,7 @@
 \begin{document}
 
 \noindent
-\section{Problems submitted by Sohyun Kim}
+\section{Problems Set 1}
 \subsection{Problem 1}
 a) $y' - 2y = 0$
 
@@ -71,4 +71,59 @@ $a_2 = 1$,
 $a_1 = 4$,
 $a_0 = 0$, and
 $g(x) = 4x$.
+
+\noindent
+\section{Problem Set 2}
+\subsection{Problem 1}
+Given $y'' = 2y + y'$, verify the following solutions:
+\begin{align*}
+y_1(x) &= sinh(2x) + cosh(2x)
+\\ y_2(x) &= sin(2x+3)
+\end{align*}
+
+For $y_1$,
+\begin{align*}
+y_1(x) &= sinh(2x) + cosh(2x)
+\\ y_1'(x) &= 2cosh(2x) + 2sinh(2x)
+\\ y_1''(x) &= 4sinh(2x) + 4cosh(2x)
+\end{align*}
+Substituting into the differential equation,
+$$4sinh(2x) + 4cosh(2x) = 2(sinh(2x) + cosh(2x)) + 2cosh(2x) + 2sinh(2x)$$
+This statement holds so $y_1$ is a solution. For $y_2$,
+\begin{align*}
+y_2(x) &= sin(2x+3)
+\\ y_2'(x) &= 2cos(2x+3)
+\\ y_2''(x) &= 4cos(2x+3)
+\end{align*}
+Substituting into the differential equation,
+$$4cos(2x+3) = 2sin(2x+3) + 2cos(2x+3)$$
+This statement holds so $y_2$ is a solution.
+
+\subsection{Problem 2}
+Given the following differential equations:
+$$y_1(x) = e^x + y' + y'' = 3$$
+$$y_1(x) = e^y + y' + y'' = 3$$
+Determine which equation is linear. For the linear equation, verify that
+$$y_3(x) = Ae^{-x} + B + 3x - \frac{e^x}{2}$$
+is a solution, for all constants $A$ and $B$. Then, determine one set of possible values for $A$ and $B$ given that $y_3(-1) = 2e - \frac{1}{2e}$.
+
+We know $y_1$ is the linear equation as $y_2$ contains a term $e^y$ which is non-linear. To verify that $y_3$ is a solution,
+\begin{align*}
+y_3(x) &= Ae^{-x} + B + 3x - \frac{e^x}{2}
+\\ y_3'(x) &= -Ae^{-x} + 3 - \frac{e^x}{2}
+\\ y_3''(x) &= Ae^{-x} - \frac{e^x}{2}
+\end{align*}
+Substituting into the differential equation,
+\begin{align*}
+e^x + y' + y'' &= 3
+\\ e^x + (-Ae^{-x} + 3 - \frac{e^x}{2}) + (Ae^{-x} - \frac{e^x}{2}) &= 3
+\\ 3 &= 3
+\end{align*}
+This holds for all values of $A$ and $B$. Using the given parameters,
+\begin{align*}
+y_3(-1) &= 2e - \frac{1}{2e}
+\\ 2e - \frac{1}{2e} &= Ae^{-(-1)} + B + 3(-1) - \frac{e^{-1}}{2}
+\\ 2e - \frac{1}{2e} &= Ae + B - 3 - \frac{1}{2e}
+\end{align*}
+Thus we get $A = 2, B = 3$.
 \end{document}
