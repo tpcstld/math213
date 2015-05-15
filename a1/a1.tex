@@ -1,0 +1,74 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{fullpage}
+% \usepackage{enumerate}
+
+\begin{document}
+
+\noindent
+\section{Problems submitted by Sohyun Kim}
+\subsection{Problem 1}
+a) $y' - 2y = 0$
+
+\begin{align*}
+  y' - 2y &= 0
+  \\ Ne^{Nx} - 2e^{Nx} &= 0
+  \\ Ne^{Nx} &= 2e^{Nx}
+  \\ N = 2
+\end{align*}
+Therefore $N = 2$.
+
+\vspace{1em}
+\noindent
+b) $y'' + 4y = 0$
+
+\begin{align*}
+  y'' + 4y &= 0
+  \\ N^2e^{Nx} + 4e^{Nx} &= 0
+  \\ N^2e^{Nx} &= -4e^{Nx}
+  \\ N^2 &= -4
+\end{align*}
+Since $N^2 >= 0$, there are no such $N$'s.
+
+\subsection{Problem 2}
+
+a) First we shall find the derivatives of $y$.
+
+\begin{align*}
+  y &= Ncos(2x) + x
+  \\ y' &= -2Nsin(2x) + 1
+  \\ y'' &= -4Ncos(2x)
+\end{align*}
+Next we shall check if $y$ is a solution.
+\begin{align*}
+  &y'' + 4y
+  \\ &= -4Ncos(2x) + 4(Ncos(2x) + x)
+  \\ &= -4Ncos(2x) + 4Ncos(2x) + 4x
+  \\ &= 4x
+  \\ &= RHS
+\end{align*}
+Therefore, $y$ is a solution.
+
+\vspace{1em}
+\noindent
+b)
+\begin{align*}
+  y'(x) &= -2Nsin(2x) + 1
+  \\ y'(0) &= -2Nsin(0) + 1
+  \\ 2 &= -2Nsin(0) + 1
+  \\ 2 &= -2N0 + 1
+  \\ 2 &= 1
+\end{align*}
+Therefore, there are no possible solutions.
+
+\vspace{1em}
+\noindent
+c) Linear, as it can be written in the form
+$a_n(x)y^{(n)}(x) + a_{n-1}(x)y^{(n-1)}(x) + ... + a_0(x)y(t) = g(x)$.
+Where $n = 2$,
+$a_2 = 1$,
+$a_1 = 4$,
+$a_0 = 0$, and
+$g(x) = 4x$.
+\end{document}
