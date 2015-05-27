@@ -1,0 +1,106 @@
+\documentclass[titlepage]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+
+\DeclareMathOperator{\arccot}{arccot}
+
+\title{Assignment 2}
+\date{\today}
+\author{Jerry Jiang\\ TianQi Shi}
+
+\begin{document}
+\maketitle
+
+\noindent
+\section{Problem Set 1}
+\subsection{Problem 1}
+a) $y' + 3x^2y^2 = 0, y(0) = 1$
+\begin{align*}
+  & y' + 3x^2y^2 = 0, y(0) = 1
+  \\ & y' = -3x^2y^2
+  \\ & \frac{dy}{dx} = -3x^2y^2
+  \\ & \frac{dy}{y^2} = -3x^2 dx
+  \\ \int & \frac{dy}{y^2} = \int -3x^2 dx
+  \\ & \frac{-1}{y} = -x^3 + C
+  \\ & -1 = (-x^3 + C)y
+  \\ & y = \frac{-1}{-x^3 + C}
+\end{align*}
+
+Particular solution:
+
+\begin{align*}
+  & y = \frac{-1}{-x^3 + C}
+  \\ & 1 = \frac{-1}{0 + C}
+  \\ & 1 = \frac{-1}{C}
+  \\ & C = -1
+\end{align*}
+
+$$\therefore y = \frac{-1}{-x^3 - 1}$$
+
+
+\noindent
+b) $x^2y' = 1 + y^2$
+
+\begin{align*}
+  & x^2y' = 1 + y^2
+  \\ & \frac{dyx^2}{dx} = 1 + y^2
+  \\ & \frac{dy}{1 + y^2} = \frac{1}{x^2} dx
+  \\ \int & \frac{dy}{1 + y^2} = \int \frac{1}{x^2} dx
+  \\ & \arctan y = \frac{-1}{x} + C
+  \\ & y = \tan(\frac{-1}{x} + C) \end{align*}
+
+\subsection{Problem 2}
+
+\begin{align*}
+  & (x-1)y' + \frac{2(x-1)y}{x} = (x-1)(x+1)
+  \\ & y' + \frac{2y}{x} = x+1 \tag{$x \neq 1$}
+  \\ & \sigma y' + \sigma \frac{2y}{x} = \sigma(x+1)
+\end{align*}
+
+Use integrating factor method:
+
+\begin{align*}
+  & (\sigma y)' = \sigma y' + \sigma' y = \sigma y' + \sigma \frac{2y}{x}
+  \\ & \sigma' y = \sigma \frac{2y}{x}
+  \\ & \sigma' = \sigma \frac{2}{x}
+  \\ & \frac{d\sigma}{dx} = \sigma \frac{2}{x}
+  \\ & \frac{d\sigma}{\sigma} = \frac{2}{x} dx
+  \\ \int & \frac{d\sigma}{\sigma} = \int \frac{2}{x} dx
+  \\ & \ln|\sigma| = 2 \ln|x| + C
+  \\ & |\sigma| = e^C|x|^2 \tag{$x \neq 0$}
+  \\ & \sigma = Dx^2
+\end{align*}
+
+Calculate $y$:
+
+\begin{align*}
+  & \frac{dDx^2y}{dx} = Dx^2(x+1)
+  \\ & \frac{dx^2y}{dx} = x^2(x+1)
+  \\ & dx^2y = x^2(x+1) dx
+  \\ & dx^2y = x^3 + x^2 dx
+  \\ \int & dx^2y = \int x^3 + x^2 dx
+  \\ & x^2y = \frac{x^4}{4} + \frac{x^3}{3} + C
+  \\ & y = \frac{x^2}{4} + \frac{x}{3} + \frac{C}{x^2} \tag{$x \neq 0 $}
+\end{align*}
+
+In addition, $x \neq 1$, since we divided the original equation by $(x-1)$.
+
+Find particular solution:
+
+\begin{align*}
+  & y = \frac{x^2}{4} + \frac{x}{3} + \frac{C}{x^2}
+  \\ & \frac{7}{3} = \frac{2^2}{4} + \frac{2}{3} + \frac{C}{2^2}
+  \\ & \frac{7}{3} = 1 + \frac{2}{3} + \frac{C}{4}
+  \\ & \frac{7}{3} = \frac{5}{3} + \frac{C}{4}
+  \\ & \frac{2}{3} = \frac{C}{4}
+  \\ & \frac{8}{3} = C
+\end{align*}
+
+$$\therefore y = \frac{x^2}{4} + \frac{x}{3} + \frac{8}{3x^2}$$
+
+\section{Problem Set 2}
+\subsection{Problem 1}
+\subsection{Problem 2}
+\end{document}
