@@ -37,7 +37,7 @@ Particular solution:
   \\ & C = -1
 \end{align*}
 
-$$\therefore y = \frac{-1}{-x^3 - 1}$$
+$$\therefore y = \frac{-1}{-x^3 - 1} = \frac{1}{x^3 + 1}$$
 
 
 \noindent
@@ -102,5 +102,67 @@ $$\therefore y = \frac{x^2}{4} + \frac{x}{3} + \frac{8}{3x^2}$$
 
 \section{Problem Set 2}
 \subsection{Problem 1}
+Given the linear equation $xy' - y = x - 1$, solve for $y(x)$.
+\\ a) $y(e) = 1$
+\\ \\ Using the integrating factor method, first multiply all terms by the integrating factor $\sigma$:
+\begin{align*}
+xy' - y &= x - 1
+\\ y' - \frac{y}{x} &= 1 - \frac{1}{x}
+\\ \sigma y' - \sigma \frac{y}{x} &= \sigma - \sigma \frac{1}{x}
+\end{align*}
+Set the left hand side to $(\sigma y)'$:
+\begin{align*}
+(\sigma y)' &= \sigma y' - \sigma \frac{y}{x}
+\\ \sigma y' + \sigma'y &= \sigma y' - \sigma \frac{y}{x}
+\\ \sigma'y &= - \sigma \frac{y}{x}
+\\ \frac{d\sigma}{dx} &= - \frac{\sigma}{x}
+\\ \frac{d\sigma}{\sigma} &= - \frac{dx}{x}
+\\ \ln \left| \sigma \right| &= - \ln \left| x \right|
+\\ \sigma &= \frac{1}{x}
+\end{align*}
+Then set the right hand side to $\frac{d}{dx} (\sigma y)$:
+\begin{align*}
+\frac{d}{dx} (\frac{y}{x}) &= \frac{1}{x} - \frac{1}{x}\frac{1}{x}
+\\ \int d (\frac{y}{x}) &= \int \frac{1}{x} - \frac{1}{x^2} dx
+\\ \frac{y}{x} &= \ln \left| x \right| + \frac{1}{x} + c
+\\ y &= x\ln \left| x \right| + cx + 1
+\end{align*}
+Substituting initial conditions,
+\begin{align*}
+1 &= e\ln \left| e \right| + ce + 1
+\\ 0 &= (c + 1)e
+\\ c &= - 1
+\end{align*}
+$$ \therefore y = x\ln \left| x \right| - x + 1 $$
+
+\noindent
+b) $y (-1) = 1$
+\\ Using the same general solution, substitute initial conditions.
+\begin{align*}
+1 &= (-1)\ln \left| (-1) \right| + c(-1) + 1
+\\ c &= 0
+\end{align*}
+$$ \therefore y = x\ln \left| x \right| + 1 $$
+
+\noindent
+c) $y (0) = 1$
+\\ The general solution contains a term $\ln \left| x \right|$ and the natural logarithm is indeterminate at $x=0$. Therefore, there is no particular solution satisfying this initial condition.
+
+
 \subsection{Problem 2}
+Solve for $y(x)$ given initial condition y(0) = -2:
+\begin{align*}
+y' &= \frac{e^x}{2y}
+\\ \frac{dy}{dx} &= \frac{e^x}{2y}
+\\ \int 2y dy &= \int e^x dx
+\\ y^2 &= e^x + c
+\\ y &= e^{\frac{x}{2}} + c
+\end{align*}
+Substituting initial conditions,
+\begin{align*}
+-2 &= e^{\frac{0}{2}} + c
+\\ c &= -2
+\end{align*}
+Thus $y(x) = e^{\frac{x}{2}} - 2$
+
 \end{document}
