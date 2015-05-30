@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{fullpage}
+\usepackage{graphicx}
 
 \DeclareMathOperator{\arccot}{arccot}
 
@@ -164,5 +165,80 @@ Substituting initial conditions,
 \\ c &= -2
 \end{align*}
 Thus $y(x) = e^{\frac{x}{2}} - 2$
+
+\subsection{Simulation}
+To get the state space for the simulation, we start by defining two linear differential equations.
+$$y_1(t) = x(t)$$
+$$y_2(t) = x'(t)$$
+If we differentiate both sides,
+$$y_1'(t) = x'(t) = y_2(t)$$
+$$y_2'(t) = -\frac{c}{m} x' - \frac{k}{m}x$$
+We substitute these into the state space vector. Below is the MATLAB code used in the simulation:
+\begin{verbatim}
+% MSDamper.m
+function dx = MSDamper(t,x,m,k,c)
+%This program generates the Mass Spring Damper system equation mx''+cx'+ kx = 0.
+% where m is the mass of the system
+% k is the stiffness of the spring
+% c is the viscosity damping
+% x is displacement.
+
+xd1 = x(2); %%first order derivative
+xd2 = -(c/m)*x(2) - (k/m)*x(1);  %%second order derivative
+
+dx = [xd1; xd2];
+end
+
+
+% solver.m
+clc; clear all; close all;
+% Solve the MSDamper function under different conditions
+
+%initial conditions
+m =  1;     %mass of the system
+k =  1;     % stiffness of the spring
+c =  1;     %viscosity damping
+t_max = 5;  %simulation time 5 s
+
+%options = odeset('Refine',6,'RelTol',1e-4);
+x_0 =  0;   %initial displacement
+x_d_0 = 1; %initial velocity
+X_0 = [x_0; x_d_0];  %initial condition
+
+[t,y] = ode45(@MSDamper, [0,t_max], X_0,[],m,k,c);
+%y(:,1) is the Displacement; y(:,2) is the velocity
+
+subplot(2,1,1),plot(t,y(:,1));
+xlabel('Time (sec.)');
+ylabel('Displacement (m)');
+title('Mass-Spring systems');
+subplot(2,1,2),plot(t,y(:,2));
+xlabel('Time (sec.)');
+ylabel('Velocity (m/sec.)');
+\end{verbatim}
+
+\noindent Using the initial values in the code here, we can produce the following.
+
+\begin{center}
+        \includegraphics[scale=0.6]{matlab/base.jpg}
+\end{center}
+
+\noindent From these two charts, we can see that the spring oscillates in its displacement. The spring constant is small so oscillation occurs slowly, showing less than one full phase in the diagram. If we increase the spring constant $k$, we get a stiffer spring that oscillates more frequently in the same time frame. Also note that the following spring system has initial displacement 200 m and initial velocity 0 m/sec.
+
+\begin{center}
+        \includegraphics[scale=0.6]{matlab/k200.jpg}
+\end{center}
+
+\noindent Analyzing the viscocity damping coefficient $c$, we find that when $c > 0$ (as in the initial conditions) the oscillations are damped and amplitudes eventually go to 0. When $c = 0$, the oscillations are not damped and amplitude is always the same.
+
+\begin{center}
+        \includegraphics[scale=0.6]{matlab/d200k200c0.jpg}
+\end{center}
+
+\noindent When $c < 0$, the oscillations are damped negatively so they actually grow in size. The original amplitude is near 0 as we start with 0 initial displacement and velocity. However, the end behaviour has much higher amplitudes.
+
+\begin{center}
+        \includegraphics[scale=0.6]{matlab/k200c-1.jpg}
+\end{center}
 
 \end{document}
