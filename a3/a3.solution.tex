@@ -1,0 +1,76 @@
+% <- percent signs are used to comment
+\documentclass[12pt]{article}
+
+%amsmath is a packaged use for typesetting math
+%amsfonts is required for special fonts, e.g. blackboard bold (for denoting real numbers, etc.)
+\usepackage{amsmath,amsfonts}
+
+\usepackage{fullpage,url,amssymb,epsfig,color,xspace}
+
+%Note: Many of the packages above have other uses beyond those used in this document
+
+%this marks the beginning of the document. Everything before this is called the Preamble.
+\begin{document}
+%marks the end of the title section
+\begin{center}
+{\Large\bf University of Waterloo}\\
+\vspace{3mm}
+{\Large\bf MATH 213, Spring 2015}\\
+\vspace{2mm}
+{\Large\bf Assignment 3}\\
+\end{center}
+
+\section*{Question 1}
+
+Find the general solution for the following differential equations. Hint: Some roots are complex. You may want to use factor theorem. \\
+
+\noindent
+a) $y'''' - 8y'' + 72y' - 65y = 0$ \\
+
+\noindent This gives the characteristic equation:
+$$\lambda^4 - 8\lambda^2 + 72\lambda - 65 = 0$$ \hfill (1 mark)
+\\ Using factor theorem, we can find roots 1 and -5. The remaining quadratic, $x^2 - 4x + 13$, gives roots $2\pm3i$. Using these roots, we get general solution:
+$$y = c_1 e^x + c_2e^{-5x} + c_3e^{2x}\cos(3x) + c_4 e^{2x}\sin(3x)$$ \hfill (1 mark)
+
+
+\noindent
+b) $y^{(6)} - 4y^{(5)} + 6y^{(4)} - 8y^{(3)} + 9y'' - 4y' + 4y = 0$ \\
+
+\noindent This gives the characteristic equation:
+$$\lambda^6 - 4\lambda^5 + 6\lambda^4 - 8\lambda^3 + 9\lambda^2 - 4\lambda + 4 = 0$$ \hfill (1 mark)
+\\ We can factor this to $(x-2)^2(x\pm i)^2$ which gives roots 2 and $\pm i$. We get a general solution:
+$$y=(c_1 + c_2x) e^{2x} + e^x(c_3 + c_4x)(c_5\sin(x) + c_6\cos(x))$$ \hfill (2 marks)
+
+\section*{Question 2}
+
+Find the general solution of the following differential equation using the method of undetermined coefficients.
+
+$$y'' - 8y' + 15y = x + \cos 2x$$
+
+\noindent First, we solve the homongenous equation using the characteristic equation:
+$$\lambda^2 - 8\lambda + 15 = 0$$ \hfill (1 mark)
+\\ We get roots 3 and 5 thus,
+$$y_h = c_1 e^{3x} + c_2 e^{5x}$$ \hfill (1 mark)
+\\ Using the method of undetermined coefficients, we get the following assumed form for $x + \cos(2x)$.
+\begin{align*}
+y_p &= k_1 + k_2x + k_3\cos(2x) + k_4\sin(2x)
+\\ y_p' &= k_2 - 2k_3\sin(2x) + 2k_4\cos(2x)
+\\ y_p'' &= -4k_3\cos(2x) - 4k_4\sin(2x) \tag{1 mark}
+\end{align*}
+
+\noindent Substituting into the the original differential equation,
+\begin{align*}
+& -4k_3\cos(2x) - 4k_4\sin(2x) - 8(k_2 - 2k_3\sin(2x) + 2k_4\cos(2x)) + 15(k_1 + k_2x + k_3\cos(2x) + k_4\sin(2x))
+\\ &= (-8k_2 + 15k_1) + x(15k_2) + \cos(2x)(-4k_3 - 16k_4 + 15k_3) + \sin(2x)(-4k_4 + 16k_3 + 15k_4)
+\end{align*}
+Setting this expression equal to right hand side ($x + \cos(2x)$) and comparing coefficients, we get a system of equations which resolves to:
+\begin{align*}
+k_1 &= \frac{8}{225}
+\\ k_2 &= \frac{1}{15}
+\\ k_3 &= \frac{11}{377}
+\\ k_4 &= -\frac{16}{377} \tag{1 mark}
+\end{align*}
+Thus the general solution is,
+$$y = c_1 e^{3x} + c_2 e^{5x} + \frac{8}{225} + \frac{1}{15}x + \frac{11}{377} \cos(2x) + -\frac{16}{377} \sin(2x)$$ \hfill (1 mark)
+
+\end{document}
