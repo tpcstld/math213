@@ -91,5 +91,61 @@ So $y = -\frac{1}{2}e^x -\frac{1}{6}x^2 - \frac{1}{9}x + c_1 + c_2e^{3x}$.
 
 \section{Problem Set 2}
 \subsection{Problem 1}
+
+We can show that a set of equations are linearly dependent if there exists a set of non-zero coefficients for the terms such that the sum is equal to 0.\\
+
+\noindent a) $\{0, e^{x^2} \cos(\arctan x)\}$
+$$1(0) + 0(e^{x^2} \cos(\arctan x)) = 0$$
+
+\noindent b) $\{e^x, e^{x+\pi}, \sin x\}$
+$$ce^x + e^{x + \pi} + 0(\sin x) = 0$$
+This statement holds where $c = -e^{\pi}.$\\
+
+\noindent c) $\{e^{-x}, \sinh x, \cosh x\}$
+$$\sinh x - \cosh x + e^{-x} = 0$$
+We know this statement holds by expanding the hyperbolic functions.
+
+\begin{align*}
+  \sinh x - \cosh x + e^{-x} &= \frac{e^x - e^{-x}}{2} - \frac{e^x + e^{-x}}{2} + e^{-x}
+  \\ &= -e^{-x} + e^{-x}
+  \\ &= 0
+\end{align*}
+
+\noindent d) $\{2x^2 - 1, 5, 1 - x^2\}$
+\begin{align*}
+  & (2x^2 - 1) + 2(1 - x^2) - \frac{1}{5}(5)
+  \\ &= 2x^2 - 1 + 2 - 2x^2 - 1
+  \\ &= 0
+\end{align*}
+
 \subsection{Problem 2}
+
+First, we solve the homogeneous case using the characteristic equation, $$\lambda^2 + 3\lambda - 2 = 0$$
+
+\noindent Using the quadratic formula, $$\lambda = \frac{-3 \pm \sqrt{17}}{2}$$
+
+\noindent Thus, $$y_h = c_1e^{\frac{-3 + \sqrt{17}}{2}} + c_2e^{\frac{-3 - \sqrt{17}}{2}}$$
+
+\noindent For the particular solution, we use the method of undetermined coefficients. Derivatives of $e^x(x^2 + 1)$ gives us $\{x^2e^x, xe^x, e^x\}$, so we try
+\begin{align*}
+  y_p &= Ax^2e^x + Bxe^x + Ce^x
+  \\ y_p' &= Ax^2e^x + (2A + B)xe^x + (B + C)e^x
+  \\ y_p'' &= Ax^2e^x + (4A + B)xe^x + (2A + 2B +C)e^x
+\end{align*}
+
+\noindent Substituting into ODE,
+\begin{align*}
+  & Ax^2e^x + (4A + B)xe^x + (2A + 2B +C)e^x + 3(Ax^2e^x + (2A + B)xe^x + (B + C)e^x) - 2(Ax^2e^x + Bxe^x + Ce^x)
+  \\ &= e^x((A + 3A - 2A)x^2 + (4A + B + 6A + 3B - 2B)x + (2A + 2B + C + 3B + 3C - 2C))
+\end{align*}
+
+\noindent Comparing coefficients with RHS $e^x(x^2 + 1)$, we get
+\begin{align*}
+  A &= \frac{1}{2}
+  \\ B &= \frac{-5}{2}
+  \\ C &= \frac{25}{4}
+\end{align*}
+
+\noindent Thus $y_p = e^x(\frac{1}{2}x^2 - \frac{5}{2}x + \frac{25}{4})$. So the general solution is: $$y = y_h + y_p = c_1e^{\frac{-3 + \sqrt{17}}{2}} + c_2e^{\frac{-3 - \sqrt{17}}{2}} + e^x(\frac{1}{2}x^2 - \frac{5}{2}x + \frac{25}{4})$$
+
 \end{document}
