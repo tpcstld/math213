@@ -1,5 +1,5 @@
 % <- percent signs are used to comment
-\documentclass[12pt]{article}
+\documentclass[titlepage,12pt]{article}
 
 %amsmath is a packaged use for typesetting math
 %amsfonts is required for special fonts, e.g. blackboard bold (for denoting real numbers, etc.)
@@ -7,18 +7,15 @@
 
 \usepackage{fullpage,url,amssymb,epsfig,color,xspace}
 
+\title{Assignment 3}
+\date{\today}
+\author{Jerry Jiang\\ TianQi Shi}
+
 %Note: Many of the packages above have other uses beyond those used in this document
 
 %this marks the beginning of the document. Everything before this is called the Preamble.
 \begin{document}
-%marks the end of the title section
-\begin{center}
-{\Large\bf University of Waterloo}\\
-\vspace{3mm}
-{\Large\bf MATH 213, Spring 2015}\\
-\vspace{2mm}
-{\Large\bf Assignment 3}\\
-\end{center}
+\maketitle
 
 \section*{Question 1}
 
@@ -39,7 +36,7 @@ b) $y^{(6)} - 4y^{(5)} + 6y^{(4)} - 8y^{(3)} + 9y'' - 4y' + 4y = 0$ \\
 \noindent This gives the characteristic equation:
 $$\lambda^6 - 4\lambda^5 + 6\lambda^4 - 8\lambda^3 + 9\lambda^2 - 4\lambda + 4 = 0$$ \hfill (1 mark)
 \\ We can factor this to $(x-2)^2(x\pm i)^2$ which gives roots 2 and $\pm i$. We get a general solution:
-$$y=(c_1 + c_2x) e^{2x} + e^x(c_3 + c_4x)(c_5\sin(x) + c_6\cos(x))$$ \hfill (2 marks)
+$$y=(c_1 + c_2x) e^{2x} + (c_3 + c_4x)(c_5\sin(x) + c_6\cos(x))$$ \hfill (2 marks)
 
 \section*{Question 2}
 
