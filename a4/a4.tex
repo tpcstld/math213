@@ -124,4 +124,52 @@ $R = 10$, $L = 0.1$, and $w = 2\pi$.
 \subsection*{RL Circuit}
 \noindent This circuit could be used in a subwoofer, because it seems to be able to amplify lower frequencies while de-amplifying higher frequencies. A subwoofer is designed for lower frequency sounds, so having the circuit able to trim out the unwanted higher frequency noises would make it very suitable for use in a subwoofer.
 
+\pagebreak
+\section{RCL Circuit}
+
+First we derive the differential equation for the system.
+$$E(t) = L \frac{d^2q}{dt^2} + R\frac{dq}{dt} + \frac{q}{C}$$
+To get the state space for the simulation, we start by defining two linear differential equations.
+$$y_1(t) = x(t)$$
+$$y_2(t) = x'(t)$$
+If we differentiate both sides,
+$$y_1'(t) = x'(t) = y_2(t)$$
+$$y_2'(t) = \frac{E(T)}{L}-\frac{R}{L} x' - \frac{1}{CL}x$$
+We substitute these into the state space vector. Below is the MATLAB code used in the simulation:
+\begin{verbatim}
+% MSDamper.m
+function dx = MSDamper(t,x,l,c,r)
+
+xd1 = x(2); %%first order derivative
+%% note that c is actually 1/capacitance so we must use inverse
+xd2 = sin(t)/l-(r/l)*x(2) - (c/l)*x(1);  %%second order derivative
+
+dx = [xd1; xd2];
+end
+\end{verbatim}
+
+\begin{center}
+        \includegraphics[scale=0.6]{base.png}
+\end{center}
+
+\noindent The above graph is a good representation of the base case. A transient is present towards the beginning of the graph but due to damping, end behaviour is an oscillation around 0. This signal is due to our sinuoidal input signal.
+
+\begin{center}
+        \includegraphics[scale=0.6]{rcl-lowr.png}
+\end{center}
+
+\noindent In our first variation, we have a very low resistance value compared to inductance and capacitance. We can see that the graph is not damped and has infinity for end behaviour.
+
+\begin{center}
+        \includegraphics[scale=0.6]{rcl-highr.png}
+\end{center}
+
+\noindent Conversely, when resistance is very high relative to inductance and capacitance, the system does not experience damping and stays around input level amplitudes.
+
+\begin{center}
+        \includegraphics[scale=0.6]{resonance.png}
+\end{center}
+
+\noindent We observe that when the frequency is exactly $\sqrt{\frac{1}{CL}}$, there is a resonance phenomenon which causes the signal to grow. This can be used to pick up signals transmitted at certain frequencies as something with the same frequency will have a very high signal while all other frequencies will be damped. When transmitters on cell phones send signals, the signal is sent at a specific frequency so the receiver will get various frequencies signals. Applying this resonance concept allows it to select whatever is useful to itself.
+
 \end{document}
