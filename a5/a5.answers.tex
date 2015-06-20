@@ -1,0 +1,54 @@
+\documentclass[titlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{graphicx}
+
+\DeclareMathOperator{\arccot}{arccot}
+
+\title{Assignment 5}
+\date{\today}
+\author{Jerry Jiang\\ TianQi Shi}
+
+\begin{document}
+\maketitle
+
+\noindent
+\section{Problem Set 1}
+\subsection{Problem 1}
+1) $f(t) = e^{2^{t^2}}$ \\
+This function is not exponential order. For some $K, c, T$,
+$$\frac{e^{2^{t^2}}}{Ke^{ct}} = \frac{1}{K}e^{2^{t^2} - ct}$$
+As $t$ approaches infinity, the expression in the exponent approaches infinity regardless of our selection of c.\\
+
+\noindent 2) $f(t) = 2t^3$ \\
+$$\lim_{t\to\infty} \frac{2t^3}{Ke^{ct}} = \lim_{t\to\infty} \frac{6t^2}{cKe^{ct}} = \lim_{t\to\infty} \frac{12t}{c^2Ke^{ct}} = \lim_{t\to\infty} \frac{12}{c^3Ke^{ct}}$$
+Evaluating this limit, we see that as $t$ approaches infinity, the ratio approaches zero. Therefore $2t^3$ is of exponential order.
+
+\subsection{Problem 2}
+$$\frac{1}{s^2 + 6s + 8}$$
+
+Using partial fraction decomposition,
+\begin{align*}
+  \frac{1}{s^2 + 6s + 8} &= \frac{A}{s+2} + \frac{B}{s+4} \\
+  1 &= As + 4A + Bs + 2B \\
+\end{align*}
+
+Comparing coefficients,
+\begin{align*}
+  0 &= A + B
+  1 &= 4A + 2B
+\end{align*}
+
+We get $A = 1/2$ and $B = -1/2$. Substituting,
+$$\frac{1}{s^2 + 6s + 8} = \frac{1}{2(s+2)} + \frac{-1}{2(s+4)}$$
+
+Taking the inverse Laplace transform,
+$$f(t) = \frac{1}{2}e^{-2t} - \frac{1}{2}e^{-4t}$$
+
+\section{Problem Set 2}
+\subsection{Problem 1}
+
+\subsection{Problem 2}
+
+\end{document}
