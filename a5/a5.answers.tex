@@ -48,7 +48,69 @@ $$f(t) = \frac{1}{2}e^{-2t} - \frac{1}{2}e^{-4t}$$
 
 \section{Problem Set 2}
 \subsection{Problem 1}
+$$y'' + 5y' + 4y = 0, y(0) = 1, y'(0) = 2$$
+First we take the Laplace of both sides.
+\begin{align*}
+  &s^2Y(s) - sy(0) - y'(0) + 5(sY(s) - y(0)) + 4Y(s) = 0
+  \\&s^2Y(s) - sy(0) - y'(0) + 5sY(s) - 5y(0) + 4Y(s) = 0
+  \\&s^2Y(s) - s - 2 + 5sY(s) - 5 + 4Y(s) = 0
+  \\&s^2Y(s) + 5sY(s) + 4Y(s) = s + 7
+  \\&(s^2 + 5s + 4)Y(s) = s + 7
+  \\&Y(s) = \frac{s + 7}{s^2  + 5s + 4}
+  \\&Y(s) = \frac{s + 7}{(s + 1)(s + 4)}
+\end{align*}
+Use partial fraction decomposition to split $Y(s)$.
+\begin{align*}
+  &\frac{s + 7}{(s + 1)(s + 4)} = \frac{A}{s + 1} + \frac{B}{s + 4}
+  \\& s + 7 = As + 4A + Bs + B
+  \\&\therefore A + B = 1, 4A + B = 7
+  \\&\therefore A = 2, B = -1
+\end{align*}
+Take the inverse Laplace to find $y(t)$.
+\begin{align*}
+  &Y(s) = \frac{s + 7}{(s + 1)(s + 4)}
+  \\&Y(s) = \frac{2}{s + 1} - \frac{1}{s + 4}
+  \\&y(t) = 2e^{-t} + e^{-4t}
+\end{align*}
+Therefore, the particular solution is $y(t) = 2e^{-t} + e^{-4t}$.
 
 \subsection{Problem 2}
+$$x'' + 7x' + 12x = 2 + e^{-t}, x(0) = 0, x'(0) = 1$$
+First we take the Laplace of both sides.
+\begin{align*}
+  &s^2X(s) - sx(0) - x'(0) + 7sX(s) - 7x(0) + 12X(s) = \frac{2}{s} + \frac{1}{s + 1}
+  \\&(s^2 + 7s + 12)X(s) = \frac{2}{s} + \frac{1}{s + 1} + 1
+  \\&(s + 4)(s + 3)X(s) = \frac{2}{s} + \frac{1}{s + 1} + 1
+  \\&X(s) = \frac{2}{s(s + 4)(s + 3)} + \frac{1}{(s + 1)(s + 4)(s + 3)} + \frac{1}{(s + 4)(s + 3)}
+\end{align*}
+Use partial fraction decomposition to split $X(s)$.
+\begin{align*}
+  &\frac{2}{s(s + 4)(s + 3)} = \frac{A}{s} + \frac{B}{s + 4} + \frac{C}{s + 3}
+  \\&2 = As^2 + 7As + 12A + Bs^2 + 3Bs + Cs^2 + 4Cs
+  \\&A + B + C = 0, 7A + 3B + 4C = 0, 12A = 2
+  \\&A = \frac{1}{6}, B = \frac{1}{2}, C = -\frac{2}{3}
+\end{align*}
+
+\begin{align*}
+  &\frac{1}{(s + 1)(s + 4)(s + 3)} = \frac{A}{s + 1} + \frac{B}{s + 4} + \frac{C}{s + 3}
+  \\&1 = As^2 + 7As + 12A + Bs^2 + 4Bs + 3B + Cs^2 + 5Cs + 4C
+  \\&A + B + C = 0, 7A + 4B + 5C = 0, 12A + 3B + 4C = 1
+  \\&A = \frac{1}{6}, B = \frac{1}{3}, C = -\frac{1}{2}
+\end{align*}
+
+\begin{align*}
+  &\frac{1}{(s + 4)(s + 3)} = \frac{A}{s + 4} + \frac{B}{s + 3}
+  \\&1 = As + 3A + Bs + 4B
+  \\&A + B = 0, 3A + 4B = 1
+  \\&A = -1, B = 1
+\end{align*}
+Take the inverse Laplace to find $x(t)$.
+\begin{align*}
+  &X(s) = \frac{1}{6}\frac{1}{s} + \frac{1}{2}\frac{1}{s + 4} - \frac{2}{3}\frac{1}{s + 3} + \frac{1}{6}\frac{1}{s + 1} + \frac{1}{3}\frac{1}{s + 4} - \frac{1}{2}\frac{1}{s + 3} - \frac{1}{s + 4} + \frac{1}{s + 3}
+  \\&X(s) = \frac{1}{6}\frac{1}{s} - \frac{1}{6}\frac{1}{s + 4} - \frac{1}{6}\frac{1}{s + 3} + \frac{1}{6}\frac{1}{s + 1}
+  \\&x(t) = \frac{1}{6} - \frac{1}{6}e^{-4t} - \frac{1}{6}e^{-3t} + \frac{1}{6}e^{-t}
+\end{align*}
+
+Therefore, the particular solution is $x(t) = \frac{1}{6} - \frac{1}{6}e^{-4t} - \frac{1}{6}e^{-3t} + \frac{1}{6}e^{-t}$.
 
 \end{document}
