@@ -26,7 +26,36 @@ Find the inverse of the given transform. \\
 
 \noindent
 a) $$\frac{3s^2 - 12s^2 - 2s - 56}{(s-7)s(s^2+4)}$$
+
+Using partial fraction expansion, $$\frac{3s^2 - 12s^2 - 2s - 56}{(s-7)s(s^2+4)} = \frac{A}{s-7} + \frac{B}{s} + \frac{2C}{s^2+4} + \frac{Ds}{s^2+4}$$
+\indent Expanding,
+\begin{align*}
+  -9s^2 - 2s - 56 &= As(s^2+4) + B(s-7)(s^2+4) + 2Cs(s-7) + Ds(s(s-7))\\
+  -9s^2 - 2s - 56 &= As^3 + 4As + Bs^3 + -7Bs^2 + 4Bs - 28B + 2Cs^2 -14Cs + Ds^3 - 7Ds^2 \\
+\end{align*}
+\indent Comparing coefficients, we get the following systems of equations.
+\begin{align*}
+  0 &= A + B + D\\
+  -9 &= -7B + 2C - 7D \\
+  -2 &= 4A + 4B -14C \\
+  -56 &= -28B
+\end{align*}
+\indent Which gives us $A = \frac{-73}{53}, B = 2, C = \frac{17}{53}, D = \frac{-33}{53}$. Thus our original expression becomes,
+$$\frac{3s^2 - 12s^2 - 2s - 56}{(s-7)s(s^2+4)} = \frac{-73}{53}\frac{1}{s-7} + \frac{2}{s} + \frac{17}{53}\frac{2}{s^2+4} + \frac{-33}{53}\frac{s}{s^2+4}$$\hfill (2 marks) \\
+\indent Taking the inverse of the transform, we get $$L(t) = \frac{-73}{53}e^{7t} + 2 + \frac{17}{53}\sin2t + \frac{-33}{53}cos2t$$ \hfill (1 mark)
+
 b) $$\frac{s^4 + 3s^3 + 2s^2 + 27s + 18}{s^3(s^2+9)}$$
+
+Using partial fraction expansion, $$\frac{s^4 + 3s^3 + 2s^2 + 27s + 18}{s^3(s^2+9)} = \frac{A}{s} + \frac{B}{s^2} + \frac{C}{s^3} + \frac{3D}{s^2+9} + \frac{Es}{s^2+9}$$ \indent Expanding, $$s^4 + 3s^3 + 2s^2 + 27s + 18 = As^2(s^2+9) + Bs(s^2+9) + C(s^2+9) + 3Ds^3 + Es(s^3)$$ \indent Comparing coefficients, we get the following system of equations,
+\begin{align*}
+  1 &= A + E \\
+  3 &= B + 3D \\
+  2 &= 9A + C \\
+  27 &= 9B \\
+  18 &= 9C
+\end{align*}
+\indent Which gives us $A = 0, B = 3, C = 2, D = 0, E = 1$. Substituting back into the original expression, $$\frac{s^4 + 3s^3 + 2s^2 + 27s + 18}{s^3(s^2+9)} = \frac{3}{s^2} + \frac{2}{s^3} + \frac{s}{s^2+9}$$ \hfill (1 mark) \\
+\indent Taking the inverse, we get $$L(t) = 3t + t^2 + \cos3t$$ \hfill (1 mark)
 
 \section*{Question 2}
 
@@ -54,13 +83,13 @@ $$y(0) = 0, y'(0) = 0, y''(0) = 4$$
   \\ &4A - 4C = 4 \tag{1 mark}
 \end{align*}
 
-\noindent Solving for these equations gives $A = \frac{1}{2}$, $B = -\frac{1}{2}$, $C = -\frac{1}{2}$. (1 mark)
+\noindent Solving for these equations gives $A = \frac{1}{2}$, $B = -\frac{1}{2}$, $C = -\frac{1}{2}$. \hfill (1 mark)
 
-\noindent Therefore, (1 mark)
+\noindent Therefore, \hfill (1 mark)
 
 $$Y(s) = \frac{1}{2}*\frac{1}{s-2} - \frac{1}{2}*\frac{s}{s^2 + 4} - \frac{1}{2}*\frac{2C}{s^2 + 4}$$
 
-\noindent Taking the inverse Laplace: (1 mark)
+\noindent Taking the inverse Laplace: \hfill (1 mark)
 
 $$y(t) = \frac{1}{2}e^{2t} - \frac{1}{2}\cos(2t) - \frac{1}{2}\sin(2t)$$
 
