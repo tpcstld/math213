@@ -1,0 +1,48 @@
+\documentclass[titlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{graphicx}
+
+\DeclareMathOperator{\arccot}{arccot}
+
+\title{Assignment 5}
+\date{\today}
+\author{Jerry Jiang\\ TianQi Shi}
+
+\begin{document}
+\maketitle
+
+\noindent
+\section{Problem Set 1}
+\subsection{Question 1}
+First we find the equation for this graph. $$f(t) = t - (t-3)H(t-3) - 3H(t-3) + H(t-3) - H(t-4) + (-(t-4)+1)H(t-4) + (t-5)H(t-5) + 2(t-5)H(t-5)$$ Then we take the Laplace transform.
+\begin{align*}
+  L\{f(t)\} &= \frac{1}{s^2} - \frac{e^{-3s}}{s^2} - \frac{3e^{-3s}}{s} + \frac{e^{-3s}}{s} - \frac{e^{-4s}}{s} - \frac{e^{-4s}}{s^2} + \frac{e^{-4s}}{s} + \frac{e^{-5s}}{s^2} + 2\frac{e^{-5s}}{s^2} \\
+  &= \frac{1-e^{-3s}-e^{-4s}+3e^{-5s}}{s^2} - \frac{2e^{-3s}}{s}
+\end{align*}
+
+\subsection{Question 2}
+We can use the theorem for periodic functions, $$L\{f(t)\} = \frac{1}{1-e^{-sT}} \int_0^T f(t)e^{-st}dt$$ Substituting the function $f(t) = \sin(t)$ with period $T=2\pi$, we get $$L\{\sin(t)\} = \frac{1}{1-e^{-s2\pi}} \int_0^{2\pi} \sin(t)e^{-st}dt$$ Using integration by parts, we can simplify the integral.
+\begin{align*}
+  \int_0^{2\pi} \sin(t)e^{-st}dt &= \frac{e^{-st}\sin(t)}{-s}\Big|_0^{2\pi} + \frac{1}{s} \int_0^{2\pi} e^{-st}\cos(t)dt \\
+  \int_0^{2\pi} \sin(t)e^{-st}dt &= \frac{e^{-st}\sin(t)}{-s}\Big|_0^{2\pi} + \frac{1}{s} \bigg( \frac{e^{-st}\cos(t)}{-s}\Big|_0^{2\pi} - \frac{1}{s} \int_0^{2\pi} e^{-st}\sin(t)dt \bigg) \\
+  \bigg( 1+\frac{1}{s^2} \bigg) \int_0^{2\pi} \sin(t)e^{-st}dt &= \frac{e^{-st}\sin(t)}{-s}\Big|_0^{2\pi} + \frac{1}{s} \frac{e^{-st}\cos(t)}{-s}\Big|_0^{2\pi} \\
+  \frac{s^2 + 1}{s^2} \int_0^{2\pi} \sin(t)e^{-st}dt &= \frac{1}{s} \bigg( \frac{e^{-s2\pi}}{-s} - \frac{e^{0}}{-s} \bigg) \\
+  \int_0^{2\pi} \sin(t)e^{-st}dt &= \frac{1 - e^{-s2\pi}}{s^2 + 1}
+\end{align*}
+Substituting into the origin expression,
+\begin{align*}
+  L\{\sin(t)\} &= \frac{1}{1-e^{-s2\pi}} \int_0^{2\pi} \sin(t)e^{-st}dt \\
+  &= \frac{1}{1-e^{-s2\pi}} \frac{1-e^{-s2\pi}}{s^2+1} \\
+  &= \frac{1}{s^2 + 1}
+\end{align*}
+Therefore the Laplace transform of $\sin(t)$ is $\frac{1}{s^2 + 1}$.
+
+\section{Problem Set 2}
+\subsection{Question 1}
+
+\subsection{Question 2}
+
+
+\end{document}
