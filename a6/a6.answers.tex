@@ -71,6 +71,48 @@ $$cos(4t), 0 < t < 2\pi$$
 \noindent So the Laplace transform of $cos(4t)$ is $\frac{s}{s^2 + 16}$.
 
 \subsection{Question 2}
+Assuming $f(t) = 0$ when $t \le 0$ and $t \ge 4$. As the question is unclear.
 
+$$x'' - x = f(t), x(0) = 0, x'(0) = 0, f(t) = t when 0 < t < 4$$
 
+\noindent Turn into a heaviside function
+
+$$x'' - x = t - 4u(t - 4) - (t - 4)u(t - 4)$$
+
+\noindent Take the Laplace of both sides
+
+\begin{align*}
+    &x'' - x = t - 4u(t - 4) - (t - 4)u(t - 4)
+ \\ &s^2X(s) - X(s) = \frac{1}{s^2} - \frac{4e^{-4s}}{s} - \frac{e^{-4s}}{s^2}
+ \\ &(s^2 - 1)X(s) = \frac{1}{s^2} - \frac{4e^{-4s}}{s} - \frac{e^{-4s}}{s^2}
+ \\ &X(s) = \frac{1}{s^2(s - 1)(s + 1)} - \frac{4e^{-4s}}{s(s - 1)(s + 1)} - \frac{e^{-4s}}{s^2(s - 1)(s + 1)}
+\end{align*}
+
+\noindent Use partial fraction decomposition.
+
+\begin{align*}
+    &\frac{1}{s^2(s - 1)(s + 1)} = \frac{A}{s} + \frac{B}{s^2} + \frac{C}{s - 1} + \frac{D}{s + 1}
+ \\ &1 = As^3 - As + Bs^2 - B + Cs^3 + Cs^2 + Ds^3 - Ds^2
+ \\ &A + C + D = 0, B + C - D = 0, -A = 0, -B = 1
+ \\ &A = 0, B = -1, C = \frac{1}{2}, D = -\frac{1}{2}
+\end{align*}
+
+\begin{align*}
+    &\frac{1}{s(s - 1)(s + 1)} = \frac{A}{s} + \frac{B}{s - 1} + \frac{C}{s + 1}
+ \\ &1 = As^2 - A + Bs^2 + Bs + Cs^2 - Cs
+ \\ &A + B + C = 0, B - C = 0, -A = 1
+ \\ &A = -1, B = \frac{1}{2}, C = \frac{1}{2}
+\end{align*}
+
+\noindent Putting it all together
+
+\begin{align*}
+    &X(s) = \frac{1}{s^2(s - 1)(s + 1)} - \frac{4e^{-4s}}{s(s - 1)(s + 1)} - \frac{e^{-4s}}{s^2(s - 1)(s + 1)}
+ \\ &X(s) = -\frac{1}{s^2} + \frac{1}{2}\frac{1}{s - 1} - \frac{1}{2}\frac{1}{s + 1}
+    + 4e^{-4s}\bigg(-\frac{1}{s} + \frac{1}{2}\frac{1}{s - 1} + \frac{1}{2}\frac{1}{s + 1}\bigg)
+    + e^{-4s}\bigg(-\frac{1}{s^2} + \frac{1}{2}\frac{1}{s - 1} - \frac{1}{2}\frac{1}{s + 1}\bigg)
+ \\ &X(s) = -\frac{1}{s^2} + \frac{1}{2}\frac{1}{s - 1} - \frac{1}{2}\frac{1}{s + 1}
+    + e^{-4s}\bigg(-\frac{4}{s} - \frac{1}{s^2} + \frac{5}{2}\frac{1}{s - 1} + \frac{3}{2}\frac{1}{s + 1}\bigg)
+    \\ &x(t) = -t + \frac{e^{t}}{2} - \frac{e^{-t}}{2} + u(t - 4)\bigg(-4 - (t - 4) + \frac{5e^{t - 4}}{2} + \frac{3e^{-(t - 4)}}{2}\bigg)
+\end{align*}
 \end{document}
