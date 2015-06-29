@@ -1,6 +1,5 @@
 \documentclass[titlepage]{article}
-\usepackage{amsmath}
-\usepackage{amssymb}
+\usepackage{amsmath} \usepackage{amssymb}
 \usepackage{fullpage}
 \usepackage{graphicx}
 
@@ -41,6 +40,35 @@ Therefore the Laplace transform of $\sin(t)$ is $\frac{1}{s^2 + 1}$.
 
 \section{Problem Set 2}
 \subsection{Question 1}
+$$cos(4t), 0 < t < 2\pi$$
+
+\noindent We know that
+
+\begin{align*}
+  L\{cos(4t)\} &= \frac{1}{1 - e^{-sT}} \int_0^T cos(4t)e^{-st} dt
+  \\&= \frac{1}{1 - e^{-s2\pi}} \int_0^{2\pi} cos(4t)e^{-st} dt
+\end{align*}
+
+\noindent Use integration by parts to find the integral
+
+\begin{align*}
+  \int_0^{2\pi} \cos(4t)e^{-st} dt &= \frac{e^{-st}\cos(4t)}{-s}\Big|_0^{2\pi} - \frac{4}{s} \int_0^{2\pi} e^{-st}\sin(4t) dt
+  \\&= \frac{e^{-st}\cos(4t)}{-s}\Big|_0^{2\pi} - \frac{4}{s} \bigg(\frac{e^{-st}\sin(4t)}{-s}\Big|_0^{2\pi} + \frac{4}{s}\int_0^{2\pi}e^{-st}\cos(4t) dt\bigg)
+  \\\bigg(1 + \frac{16}{s^2}\bigg)\int_0^{2\pi} \cos(4t)e^{-st} dt &= \frac{e^{-st}\cos(4t)}{-s}\Big|_0^{2\pi} - \frac{4}{s}\frac{e^{-st}\sin(4t)}{-s}\Big|_0^{2\pi}
+  \\\bigg(\frac{s^2 + 16}{s^2}\bigg)\int_0^{2\pi} \cos(4t)e^{-st} dt &= \frac{e^{-s2\pi}}{-s} - \frac{1}{-s} - 0 + 0
+  \\&= \frac{1 - e^{-s2\pi}}{s}
+  \\\int_0^{2\pi} \cos(4t)e^{-st} dt &= \frac{s(1 - e^{-s2\pi})}{s^2 + 16}
+\end{align*}
+
+\noindent Substitute back into the original equation
+
+\begin{align*}
+  \\L\{cos(4t)\} &= \frac{1}{1 - e^{-s2\pi}} \int_0^{2\pi} cos(4t)e^{-st} dt
+  \\&= \frac{1}{1 - e^{-s2\pi}} * \frac{s(1 - e^{-s2\pi})}{s^2 + 16}
+  \\&= \frac{s}{s^2 + 16}
+\end{align*}
+
+So the Laplace transform of $cos(4t)$ is $\frac{s}{s^2 + 16}$.
 
 \subsection{Question 2}
 
