@@ -21,6 +21,21 @@
 \end{center}
 
 \section*{Question 1}
+a) Draw a labelled sketch of the following function. $$f(t) = \sin t - \sin (t-2) H(t-2) + t^2H(t-3)$$
+
+\begin{center}
+  \includegraphics[scale=0.4]{q1agraph.png}
+\end{center}
+\hfill (2 marks)
+
+\noindent b) Derive a single expression for $f(t)$ from the following graph. Evaluate the transform.
+\begin{center}
+  \includegraphics[scale=0.2]{q1graph.png}
+\end{center}
+
+\noindent From the graph, we get the following function, $$f(t) = \sin(x) - \sin(x-\pi)u(t-\pi) + (x-5)^2u(t-5)$$ \hfill (1 mark) \\ Taking the transform, we get $$F(s) = \frac{1}{s^2+1} - \frac{e^{-\pi s}}{s^2+1} + \frac{2e^{-5s}}{s^3}$$ \hfill (2 marks)
+
+\section*{Question 2}
 
 Use the Laplace transform to find the particular solution of the following functions
 $$y' + y = \sin(t - 3)u(t - 3) + tu(t - 3) - 3u(t - 3), y(0) = 0$$
@@ -66,5 +81,4 @@ Take the inverse Laplace:
     \\ &y(t) = \bigg(-\frac{1}{2}cos(t - 3) + \frac{1}{2}sin(t - 3) + \frac{3e^{-(t-3)}}{2} - 1 + (t - 3)\bigg)u(t - 3) \tag{2 marks}
 \end{align*}
 
-\section*{Question 2}
 \end{document}
