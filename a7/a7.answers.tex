@@ -138,4 +138,33 @@ $$x(t) = \frac{10}{3}\bigg(-\frac{1}{2} + \frac{e^{-3t}}{5} + \frac{3e^{2t}}{10}
 \section*{Problem Set 2}
 \subsection*{Question 1}
 \subsection*{Question 2}
+
+\section*{Simulation}
+
+For our first simulation, we decided to set the $k_p$ and $k_d$ values to both $4*220$ (220 because it's the total mass of the system),
+because we knew that it would give us two poles at $-2$, which meant that it would be stable.
+See the below graph for the simulation results.
+
+\includegraphics[scale=0.5]{k_pk_d4m.png}
+
+As shown, the displacement does indeed settle back into the original value of 0. As the poles are the same, this also means that the system is critically damped, so there is no oscillation. Instead the hoverboard gradually returns to the resting position smoothly. However, this system results in a trough of approximately -0.275 meters, which is far too low for the requirement of only 0.1 meters. So we decided to increase the $k_p$ and $k_d$ values.
+
+\includegraphics[scale=0.5]{k_p100mk_d20m.png}
+
+At $k_p = 100*220$ and $k_d = 20*220$, we met our goal for a maximum displacement that is less than 0.1 meters. This graph is very similar to the previous simulation, except with the poles at -10 instead of -2. This graph is also critically damped, so there is no oscillation, and it returns to the resting displacement of 0 after reaching a maximum of around -0.055m. We noticed that a much larger $k_p$ and $k_d$ results in a much faster reconciliation.
+
+After satisfying the initial objective, we decided to vary the mass of the person, with our successful $k_p$ and $k_d$. First, we increased the mass to 12000kg combined.
+
+\includegraphics[scale=0.66]{guymass12000k_p100120k_d20120.png}
+
+Firstly, we noticed that the system is still stable, which makes since the roots will still have a
+negative real part. Secondly, we noticed that the system takes considerably longer to stabilize. This also makes sense, as an increased mass means that we need more power to stabilize in the same amount of time, but we didn't increase the power of the PD controller. Lastly, we noticed
+that the system is oscillating as it stabilizes, which also makes sense since the system shouldn't be critically damped anymore. After these observations, we decided to decrease the mass to 12kg combined.
+
+\includegraphics[scale=0.5]{mguy12k_p100120k_d20120.png}
+
+At a mass of 12kg, we noticed that the system is still stable. Additionally, it takes a shorter amount of time for the system to stabilize, and the oscillations appear have disappeared. These all make sense: the poles are still negative, there is less mass for the constant PD controller to counteract, and the system has gone beyond critical damping.
+
+In this simulation, we've noticed that although, with our values of $k_p = 100*220$ and $k_d = 20*220$, the system will be stable for any weight, it may not meet the requirements for an arbitrarily large amount of mass on top of the hoverboard.
+
 \end{document}
