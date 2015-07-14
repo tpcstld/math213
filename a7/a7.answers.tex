@@ -137,10 +137,50 @@ $$x(t) = \frac{10}{3}\bigg(-\frac{1}{2} + \frac{e^{-3t}}{5} + \frac{3e^{2t}}{10}
 
 \section*{Problem Set 2}
 \subsection*{Question 1}
+\begin{align*}
+    L^{-1}\{\frac{1}{s^2(s^2+4)}\} &= L^{-1}\{\frac{1}{s^2}\}L^{-1}\{\frac{1}{s^2+4}\} \\
+    &= \int_0^t (t-\tau) \frac{1}{2} \sin(2\tau) d\tau \\
+    &= \frac{t}{2} \int_0^t \sin(2\tau) d\tau - \frac{1}{2}\int_0^t \tau \sin(2\tau) d\tau \\
+    &= \frac{t}{2}\bigg(\frac{-\cos(2t)}{2}\bigg)\bigg|_0^t - \frac{1}{2} \int_0^t \tau \sin(2\tau) d\tau \\
+    &= \frac{-t\cos(2t)}{4} + \frac{t}{4} - \frac{1}{2} \int_0^t \tau \sin(2\tau) d\tau
+\end{align*}
+Using integration by parts,
+\begin{align*}
+    \int_0^t \tau \sin(2\tau) d\tau &= \tau \bigg(\frac{-\cos(2\tau)}{2}\bigg)\bigg|_0^t - \int_0^t \frac{-\cos(2\tau)}{2} d\tau \\
+    &= \frac{-t\cos(2t)}{2} + \frac{1}{2} \int_0^t \cos(2\tau) d\tau \\
+    &= \frac{-t\cos(2t)}{2} + \frac{1}{2} \bigg( \sin(\tau)\cos(\tau) \bigg) \bigg|_0^t\\
+    &= \frac{-t\cos(2t)}{2} + \frac{\sin(2t)}{4}
+\end{align*}
+Substituting back,
+\begin{align*}
+    \frac{-t\cos(2t)}{4} + \frac{t}{4} - \frac{1}{2} \int_0^t \tau \sin(2\tau) d\tau &= \frac{-t\cos(2t)}{4} + \frac{t}{4} - \frac{1}{2} \bigg( \frac{-t\cos(2t)}{2} + \frac{\sin(2t)}{4} \bigg) \\
+    &= \frac{-t\cos(2t)}{4} + \frac{t}{4} + \frac{t\cos(2t)}{4} - \frac{\sin(2t)}{8} \\
+    &= \frac{t}{4} - \frac{\sin(2t)}{8}
+\end{align*}
+
 \subsection*{Question 2}
+\begin{align*}
+    L^{-1}\{\frac{2s}{(s^2+1)^2}\} &= L^{-1}\{\frac{2}{s^2+1}\}L^{-1}\{\frac{s}{s^2+1}\} \\
+    &= \int_0^t 2\sin(t-\tau)\cos(\tau) d\tau \\
+    &= 2 \int_0^t \bigg(\sin(t)\cos(\tau) - \cos(t)\sin(\tau)\bigg)\cos(\tau) d\tau \\
+    &= 2 \sin(t) \int_0^t \cos^2(\tau) d\tau - 2\cos(t)\int_0^t\sin(\tau)\cos(\tau) d\tau \\
+    &= 2 \sin(t) \int_0^t \bigg(\frac{\cos(2\tau)}{2} + \frac{1}{2}\bigg) d\tau - 2\cos(t)\bigg(\frac{\sin^2(t)}{2}\bigg)\bigg|_0^t \\
+    &= 2 \sin(t) \bigg( \frac{1}{2}\int_0^t\cos(2\tau)d\tau +  \frac{1}{2}\int_0^t d\tau\bigg) - \sin^2(t)\cos(t) \\
+    &= \sin(t) \bigg(\sin(t)\cos(t) + t\bigg) - \sin^2(t)\cos(t) \\
+    &= \sin^2(t)\cos(t) + t\sin(t) - \sin^2(t)\cos(t) \\
+    &= t\sin(t)
+\end{align*}
 
 \section*{Simulation}
 
+First, we found the required state space equations. We have $M\ddot{x}=F$ and $F=-k_px-k_d\dot{x}$ which we can combine into a single second order differential equation, $$M\ddot{x}=-k_px-k_d\dot{x}$$
+We define two linear differential equations.
+$$y_1(t) = x(t)$$
+$$y_2(t) = x'(t)$$
+If we differentiate both sides,
+$$y_1'(t) = x'(t) = y_2(t)$$
+$$y_2'(t) = x''(t) = \frac{-k_py_1(t) - k_dy_2(t)}{M}$$
+We substitute these into the state space vector, noting that the constants  are functions of mass $M$. \\
 For our first simulation, we decided to set the $k_p$ and $k_d$ values to both $4*220$ (220 because it's the total mass of the system),
 because we knew that it would give us two poles at $-2$, which meant that it would be stable.
 See the below graph for the simulation results.
@@ -157,7 +197,7 @@ After satisfying the initial objective, we decided to vary the mass of the perso
 
 \includegraphics[scale=0.66]{guymass12000k_p100120k_d20120.png}
 
-Firstly, we noticed that the system is still stable, which makes since the roots will still have a
+Firstly, we noticed that the system is still stable, which makes sense since the roots will still have a
 negative real part. Secondly, we noticed that the system takes considerably longer to stabilize. This also makes sense, as an increased mass means that we need more power to stabilize in the same amount of time, but we didn't increase the power of the PD controller. Lastly, we noticed
 that the system is oscillating as it stabilizes, which also makes sense since the system shouldn't be critically damped anymore. After these observations, we decided to decrease the mass to 12kg combined.
 
@@ -165,6 +205,6 @@ that the system is oscillating as it stabilizes, which also makes sense since th
 
 At a mass of 12kg, we noticed that the system is still stable. Additionally, it takes a shorter amount of time for the system to stabilize, and the oscillations appear have disappeared. These all make sense: the poles are still negative, there is less mass for the constant PD controller to counteract, and the system has gone beyond critical damping.
 
-In this simulation, we've noticed that although, with our values of $k_p = 100*220$ and $k_d = 20*220$, the system will be stable for any weight, it may not meet the requirements for an arbitrarily large amount of mass on top of the hoverboard.
+Thus our values of $k_p = 100*220$ and $k_d = 20*220$,  will make the system stable for any weight, but it may not meet the displacement requirement of maximum 10cm drop downward. If we expect very large masses, we must increase $k_p$ and $k_d$ in order to damp at a faster rate. During our state space derivation, we noted that the constants were functions of mass $M$ so there are values of $k_p$ and $k_d$ that would guarantee a displacement requirement for all possible masses. As mass grows, we require the values of $k_p$ and $k_d$ to grow as well.
 
 \end{document}
