@@ -141,7 +141,7 @@ $$x(t) = \frac{10}{3}\bigg(-\frac{1}{2} + \frac{e^{-3t}}{5} + \frac{3e^{2t}}{10}
     L^{-1}\{\frac{1}{s^2(s^2+4)}\} &= L^{-1}\{\frac{1}{s^2}\}L^{-1}\{\frac{1}{s^2+4}\} \\
     &= \int_0^t (t-\tau) \frac{1}{2} \sin(2\tau) d\tau \\
     &= \frac{t}{2} \int_0^t \sin(2\tau) d\tau - \frac{1}{2}\int_0^t \tau \sin(2\tau) d\tau \\
-    &= \frac{t}{2}\bigg(\frac{-\cos(2t)}{2}\bigg)\bigg|_0^t - \frac{1}{2} \int_0^t \tau \sin(2\tau) d\tau \\
+    &= \frac{t}{2}\bigg(\frac{-\cos(2\tau)}{2}\bigg)\bigg|_0^t - \frac{1}{2} \int_0^t \tau \sin(2\tau) d\tau \\
     &= \frac{-t\cos(2t)}{4} + \frac{t}{4} - \frac{1}{2} \int_0^t \tau \sin(2\tau) d\tau
 \end{align*}
 Using integration by parts,
