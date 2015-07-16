@@ -40,13 +40,13 @@ We get $A=\frac{7}{27},B=\frac{-7}{3},C=\frac{-7}{9},D=\frac{-7}{27}$. So the or
 
 \subsection*{Convolution Theorem}
 
-We separate $F(s)$ into the following equation:
+We separate $F(s)$ into the following equation: (1 mark)
 
 $$7 * \frac{1}{s^3} * \frac{1}{s-3}$$
 
 \noindent Now we do the convolution:
 \begin{align*}
-    f(t) &= 7 \int_0^{t} \frac{1}{2}\tau^2e^{3(t - \tau)} d\tau
+    f(t) &= 7 \int_0^{t} \frac{1}{2}\tau^2e^{3(t - \tau)} d\tau \tag{1 mark}
       \\ &= \frac{7e^{3t}}{2} \int_0^t \tau^2e^{-3\tau} d\tau
       \\ &= \frac{7e^{3t}}{2}
         \bigg(\frac{\tau^2e^{-3\tau}}{-3} \bigg|_0^t
@@ -62,9 +62,9 @@ $$7 * \frac{1}{s^3} * \frac{1}{s-3}$$
         - \frac{1}{9} e^{-3t} + \frac{1}{9} \bigg) \bigg)
       \\ &= -\frac{7t^2}{6}
         + \frac{7e^{3t}}{3} \bigg(-\frac{te^{-3t}}{3}
-        - \frac{1}{9} e^{-3t} + \frac{1}{9} \bigg)
+        - \frac{1}{9} e^{-3t} + \frac{1}{9} \bigg) \tag{1 mark for solving integration}
       \\ &= -\frac{7t^2}{6} -\frac{7t}{9}
-        - \frac{7}{27} + \frac{7e^{3t}}{27}
+        - \frac{7}{27} + \frac{7e^{3t}}{27} \tag{1 mark}
 \end{align*}
 
 \section*{Question 2 (3 marks)}
