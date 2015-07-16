@@ -27,7 +27,7 @@ Find the inverse of the given transform in two different ways: using partial fra
 \begin{align*}
   \frac{7}{(s-3)s^3} &= \frac{A}{s-3} + \frac{B}{s^3} + \frac{C}{s^2} + \frac{D}{s} \\
   7 &= As^3 + B(s-3) + Cs(s-3) + Ds^2(s-3) \\
-  7 &= (A+D)s^3 + (C-3D)s^2 + (B-3C)s - 3B
+  7 &= (A+D)s^3 + (C-3D)s^2 + (B-3C)s - 3B \tag{1 mark}
 \end{align*}
 Comparing coefficients, we get a system of equations:
 \begin{align*}
@@ -36,7 +36,7 @@ Comparing coefficients, we get a system of equations:
   B-3C &= 0 \\
   -3B &= 7
 \end{align*}
-We get $A=\frac{7}{27},B=\frac{-7}{3},C=\frac{-7}{9},D=\frac{-7}{27}$. So the original expression becomes, $$\frac{7}{(s-3)s^3}=\frac{7}{27}\bigg(\frac{1}{s-3}\bigg) - \frac{7}{3}\frac{1}{s^3} - \frac{7}{9}\frac{1}{s^2} - \frac{7}{27}\frac{1}{s}$$ Taking the inverse Laplace transform, $$f(t)=\frac{7}{27}e^{3t} - \frac{7}{6}t^2 - \frac{7}{9}t - \frac{7}{27}$$
+We get $A=\frac{7}{27},B=\frac{-7}{3},C=\frac{-7}{9},D=\frac{-7}{27}$. So the original expression becomes, $$\frac{7}{(s-3)s^3}=\frac{7}{27}\bigg(\frac{1}{s-3}\bigg) - \frac{7}{3}\frac{1}{s^3} - \frac{7}{9}\frac{1}{s^2} - \frac{7}{27}\frac{1}{s}$$ \hfill(1 mark) \\ Taking the inverse Laplace transform, $$f(t)=\frac{7}{27}e^{3t} - \frac{7}{6}t^2 - \frac{7}{9}t - \frac{7}{27}$$ \hfill (1 mark)
 
 \subsection*{Convolution Theorem}
 
@@ -73,13 +73,13 @@ Solve for $x(t)$ on $0 \leq t < \infty$, $$x''-7x'=\delta(t-11)$$
 \noindent Taking the Laplace transform of the equation,
 \begin{align*}
   s^2x(s) - 7sx(s) &= e^{-11s} \\
-  x(s) &= \frac{e^{-11s}}{s(s-7)}
+  x(s) &= \frac{e^{-11s}}{s(s-7)} \tag{1 mark}
 \end{align*}
 Using partial fraction expansion,
 \begin{align*}
   \frac{1}{s(s-7)} &= \frac{A}{s} + \frac{B}{s-7} \\
   A(s-7) + Bs &= 1
 \end{align*}
-Comparing coefficients, $$A=\frac{-1}{7}, B=\frac{11}{7}$$ Substituting back into the original expression, $$\frac{e^{-11s}}{s(s-7)} = e^{-11s}\bigg(\frac{1}{7s} - \frac{1}{7(s-7)}\bigg)$$ Taking the inverse Laplace transform, $$x(t)=\frac{-1}{7}u(t-11) + \frac{1}{7}e^{7(t-11)}u(t-11)$$
+Comparing coefficients, $$A=\frac{-1}{7}, B=\frac{11}{7}$$\hfill(1 mark) \\ Substituting back into the original expression, $$\frac{e^{-11s}}{s(s-7)} = e^{-11s}\bigg(\frac{1}{7s} - \frac{1}{7(s-7)}\bigg)$$ Taking the inverse Laplace transform, $$x(t)=\frac{-1}{7}u(t-11) + \frac{1}{7}e^{7(t-11)}u(t-11)$$\hfill(1 mark)
 
 \end{document}
