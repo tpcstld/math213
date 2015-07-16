@@ -1,0 +1,74 @@
+\documentclass[12pt]{article}
+
+%amsmath is a packaged use for typesetting math
+%amsfonts is required for special fonts, e.g. blackboard bold (for denoting real numbers, etc.)
+\usepackage{amsmath,amsfonts}
+
+\usepackage{fullpage,url,amssymb,epsfig,color,xspace}
+
+\begin{document}
+\begin{center}
+{\Large\bf University of Waterloo}\\
+\vspace{3mm}
+{\Large\bf MATH 213, Spring 2015}\\
+\vspace{2mm}
+{\Large\bf Assignment 8 Solutions}\\
+\end{center}
+
+% TODO: What is the mark distribution for this problem set? Seems Question 1 should be weighted more heavily again.
+\section*{Question 1}
+Find the Fourier series of the following function, given over one period, using two methods: real and complex form.
+$$f(x) = x^2 \text{ on } (-\pi, \pi)$$
+
+\subsection*{Real}
+We require coefficients $a_0, a_n, b_n$.
+\begin{align*}
+  a_0 &= \frac{1}{2\pi}\int_{-\pi}^{\pi}x^2 dx \\
+  &= \frac{1}{\pi}\int_{0}^{\pi}x^2 dx \tag{even integrand} \\
+  &= \frac{1}{\pi} \bigg(\frac{x^3}{3}\bigg) \bigg|_0^{\pi} \\
+  &= \frac{\pi^2}{3} \\
+  a_n &= \frac{1}{\pi}\int_{-\pi}^{\pi}x^2\cos(nx) dx \\
+  &= \frac{2}{\pi}\int_{0}^{\pi}x^2\cos(nx) dx \tag{even integrand} \\
+  % TODO: show integration by parts here
+  &= \frac{2}{\pi} \bigg( \frac{(n^2x^2-2)\sin(nx) + 2nx\cos(nx)}{n^3}\bigg) \bigg|_0^{\pi} \\
+  &= \frac{2}{\pi} \bigg( \frac{(n^2\pi^2-2)\sin(n\pi) + 2n\pi\cos(n\pi)}{n^3}\bigg)
+\end{align*}
+Here we note that for multiples of $\pi$, sine is always 0 and cosine alternates between $-1$ and $1$. Thus we can rewrite as
+\begin{align*}
+  a_n &= \frac{2}{\pi} \bigg( (-1)^n \frac{2\pi}{n^2}\bigg) \\
+  &= (-1)^n \frac{4}{n^2} \\
+  b_n &= \frac{1}{\pi}\int_{-\pi}^{\pi}x^2\sin(nx) dx
+\end{align*}
+Note that the integrand is composed of two functions, $x^2$ which is even and $\sin(nx)$ which is odd. We know that the product of an even function and an odd function is an odd function so the entire integrand is odd. Since our interval of integration is symmetric, we know the integral will evaluate to $0$.
+Substituting the coefficients in the series expansion, $$f(x) = \frac{\pi^2}{3} + \sum_{n=1}^{\infty} (-1)^n \frac{4}{n^2} \cos(nx)$$
+
+\subsection*{Complex}
+We require coefficient $c_n$.
+\begin{align*}
+  c_n &= \frac{1}{2\pi}\int_{-\pi}^{\pi} x^2e^{-inx} dx \\
+  % TODO: show integration by parts here
+  &= \frac{1}{2\pi} \bigg( \frac{e^{-inx}(in^2x^2 + 2nx - 2i)}{n^3}\bigg) \bigg|_{-\pi}^{\pi} \\
+  &= \frac{1}{\pi} \bigg( \frac{(n^2\pi^2-2)\sin(n\pi) + 2n\pi\cos(n\pi)}{n^3}\bigg) \\
+  &= (-1)^n \frac{2}{n^2}
+\end{align*}
+Substituting in the series expression,
+$$f(x) = \sum_{n=-\infty}^{\infty} (-1)^n \frac{2}{n^2} e^{inx}$$
+
+\section*{Question 2}
+Derive the Fourier integral representation of the following function.
+$$f(x) =
+\begin{cases}
+e^{2x} & 0 \leq x < L \\
+0 & x < 0, x \geq L
+\end{cases}$$
+
+\begin{align*}
+  A(\omega) &= \frac{1}{\pi} \int_0^L e^2x\cos(\omega x) dx \\
+  &= \frac{1}{\pi} \bigg( \frac{e^{2x}(\omega \sin(\omega x) + 2\cos(\omega x))}{\omega^2 + 4} \bigg) \bigg|_0^L \\
+  &= \frac{1}{\pi} \bigg( \frac{e^{2x}(\omega \sin(\omega x) + 2\cos(\omega x)) - 2}{\omega^2 + 4} \bigg) \bigg|_0^L \\
+  B(\omega) &= \frac{1}{\pi} \int_0^L e^2x\sin(\omega x) dx \\
+  &= \frac{1}{\pi} \bigg( \frac{e^{2x}(2\sin(\omega x) - \omega \cos(\omega x))}{\omega^2 + 4} \bigg) \bigg|_0^L \\
+  &= \frac{1}{\pi} \bigg( \frac{e^{2x}(2\sin(\omega x) - \omega \cos(\omega x)) + w}{\omega^2 + 4} \bigg) \bigg|_0^L
+\end{align*}
+
+\end{document}
