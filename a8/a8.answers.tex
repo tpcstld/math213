@@ -1,0 +1,73 @@
+\documentclass[titlepage]{article}
+\usepackage{amsmath} \usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{graphicx}
+
+\DeclareMathOperator{\arccot}{arccot}
+
+\title{Assignment 8}
+\date{\today}
+\author{Jerry Jiang\\ TianQi Shi}
+
+\begin{document}
+\maketitle
+
+\noindent
+\section*{Problem Set 1}
+\subsection*{Question 1}
+$$f(x) = x^2 \text{ from } -2 \text{ to } 2$$
+
+First, we find $a_0$.
+
+\begin{align*}
+    a_0 &= \frac{1}{4}\int_{-2}^{2} x^2 dx
+    \\ &= \frac{1}{2}\int_{0}^{2} x^2 dx
+    \\ &= \frac{1}{2} \frac{8}{3}
+    \\ &= \frac{4}{3}
+\end{align*}
+
+Next, we find $a_n$.
+
+\begin{align*}
+    a_n &= \frac{1}{2} \int_{-2}^{2} x^2 \cos\bigg(\frac{n\pi x}{2}\bigg) dx
+    \\ &= \int_{0}^{2} x^2 \cos\bigg(\frac{n\pi x}{2}\bigg) dx
+    \\ &= \frac{x^2 \sin(\frac{n\pi x}{2})}{\frac{n\pi}{2}} \bigg|_0^2 - \int_{0}^{2}  \frac{2x \sin(\frac{n\pi x}{2})}{\frac{n\pi}{2}} dx
+    \\ &= \frac{2x^2 \sin(\frac{n\pi x}{2})}{n\pi} \bigg|_0^2 - \frac{4}{n\pi} \int_{0}^{2} x \sin\bigg(\frac{n\pi x}{2}\bigg) dx
+    \\ &= - \frac{4}{n\pi} \bigg( -\frac{x \cos(\frac{n\pi x}{2})}{\frac{n\pi}{2}} \bigg|_0^2 + \frac{2}{n\pi} \int_{0}^{2} \cos\bigg(\frac{n\pi x}{2}\bigg) dx \bigg)
+    \\ &= - \frac{4}{n\pi} \bigg( -\frac{4 (-1)^n}{n\pi} + \frac{2}{n\pi} \bigg( \frac{2}{n\pi} \sin\bigg(\frac{n\pi x}{2}\bigg) \bigg|_0^2 \bigg)
+    \\ &= - \frac{4}{n\pi} \bigg( -\frac{4 (-1)^n}{n\pi} \bigg)
+    \\ &= \frac{16 (-1)^n}{(n\pi)^2}
+\end{align*}
+
+Next, we find $b_n$.
+
+\begin{align*}
+    b_n &= \frac{1}{2} \int_{-2}^{2} x^2 \sin\bigg(\frac{n\pi x}{2}\bigg) dx
+    \\ &= 0
+\end{align*}
+
+Therefore,
+
+$$f(x) = \frac{4}{3} + \sum_1^{\infty} \frac{16 (-1)^n}{(n\pi)^2}\cos(\frac{n\pi x}{2})$$
+
+This converges for all x.
+\subsection*{Question 2}
+
+Assuming $f(x)$ is periodic.
+
+$$f(x) = e^{2x}$$
+
+\begin{align*}
+    c_n &= \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{2x}e^{inx} dx
+    \\ &= \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{(2 + in)x} dx
+    \\ &= \frac{1}{2\pi} \frac{e^{(2 + in)x}}{2 + in} \bigg|_{-\pi}^{\pi}
+    \\ &= \frac{1}{2\pi(2 + in)}\bigg(e^{(2 + in)\pi} - e^{-(2 + in)\pi}\bigg)
+\end{align*}
+
+Therefore,
+
+$$f(x) = \sum_{n=-\infty}^{\infty} \frac{1}{2\pi(2 + in)}\bigg(e^{(2 + in)\pi} - e^{-(2 + in)\pi}\bigg) e^{inx}$$
+\section*{Problem Set 2}
+\subsection*{Question 1}
+\subsection*{Question 2}
+\end{document}
