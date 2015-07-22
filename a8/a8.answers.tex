@@ -58,15 +58,15 @@ Assuming $f(x)$ is periodic.
 $$f(x) = e^{2x}$$
 
 \begin{align*}
-    c_n &= \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{2x}e^{inx} dx
-    \\ &= \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{(2 + in)x} dx
-    \\ &= \frac{1}{2\pi} \frac{e^{(2 + in)x}}{2 + in} \bigg|_{-\pi}^{\pi}
-    \\ &= \frac{1}{2\pi(2 + in)}\bigg(e^{(2 + in)\pi} - e^{-(2 + in)\pi}\bigg)
+    c_n &= \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{2x}e^{-inx} dx
+    \\ &= \frac{1}{2\pi} \int_{-\pi}^{\pi} e^{(2 - in)x} dx
+    \\ &= \frac{1}{2\pi} \frac{e^{(2 - in)x}}{2 - in} \bigg|_{-\pi}^{\pi}
+    \\ &= \frac{1}{2\pi(2 - in)}\bigg(e^{(2 - in)\pi} - e^{-(2 - in)\pi}\bigg)
 \end{align*}
 
 Therefore,
 
-$$f(x) = \sum_{n=-\infty}^{\infty} \frac{1}{2\pi(2 + in)}\bigg(e^{(2 + in)\pi} - e^{-(2 + in)\pi}\bigg) e^{inx}$$
+$$f(x) = \sum_{n=-\infty}^{\infty} \frac{1}{2\pi(2 - in)}\bigg(e^{(2 - in)\pi} - e^{-(2 - in)\pi}\bigg) e^{inx}$$
 \section*{Problem Set 2}
 \subsection*{Question 1}
 \subsection*{Question 2}
