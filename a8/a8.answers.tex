@@ -70,4 +70,33 @@ $$f(x) = \sum_{n=-\infty}^{\infty} \frac{1}{2\pi(2 - in)}\bigg(e^{(2 - in)\pi} -
 \section*{Problem Set 2}
 \subsection*{Question 1}
 \subsection*{Question 2}
+
+\section*{Simulation}
+
+Simulation code:
+
+\begin{verbatim}
+[y, fs] = audioread('recording.wav');
+[y1, fs1] = audioread('azim90elev0.wav');
+
+out1 = conv(y, y1(:,1));
+out2 = conv(y, y1(:,2));
+
+out = horzcat(out1, out2);
+
+sound(out, fs);
+\end{verbatim}
+
+The code loads the wav file that we recorded, as well as one of the wav files that was given.
+It then convolutes each side of the given stereo wav file with the recorded wav file.
+Finally, it combines the two audio streams together, and plays the resultant sound.
+
+We observed that the resultant sound preserves the content of the recording, but
+the perceived direction that the sound is coming from has been changed. We could
+change the direction that the sound was projected from by convoluting it with
+a different impulse file.
+
+See \texttt{sounds.zip} for the collection of resultant wav files that we created
+through the simulation code.
+
 \end{document}
