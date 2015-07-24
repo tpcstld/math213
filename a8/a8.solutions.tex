@@ -72,7 +72,15 @@ e^{2x} & 0 \leq x < L \\
   &= \frac{1}{\pi} \bigg( \frac{e^{2x}(2\sin(\omega x) - \omega \cos(\omega x)) + w}{\omega^2 + 4} \bigg) \bigg|_0^L \\
   &= \frac{1}{\pi} \frac{e^{2L}(2\sin(L\omega) - \omega \cos(L\omega)) + \omega}{\omega^2 + 4}
 \end{align*}
-Substituting into the series expression,
+Substituting,
 $$f(x) = \int_0^{\infty}[\frac{1}{\pi} \frac{e^{2L}(\omega \sin(L\omega) + 2\cos(L\omega)) - 2}{\omega^2 + 4}\cos(\omega x) + \frac{1}{\pi} \frac{e^{2L}(2\sin(L\omega) - \omega \cos(L\omega)) + \omega}{\omega^2 + 4}\sin(\omega x)] d\omega$$
 
+\noindent Alternatively,
+\begin{align*}
+  C(\omega) &= \frac{1}{2\pi} \int_{0}^{L}e^{2x}e^{-i\omega x} dx \\
+  &= \frac{1}{2\pi} \int_{0}^{L}e^{(2-i\omega)x} dx \\
+  &= \frac{1}{2\pi} \bigg[ \frac{-ie^2(1-e^{-iL\omega})}{\omega} \bigg]
+\end{align*}
+Substituting,
+$$f(x) = \int_{-\infty}^{\infty} \frac{1}{2\pi} \bigg[ \frac{-ie^2(1-e^{-iL\omega})}{\omega} \bigg] e^{i\omega x} d\omega$$
 \end{document}
