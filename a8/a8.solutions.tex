@@ -63,12 +63,16 @@ e^{2x} & 0 \leq x < L \\
 \end{cases}$$
 
 \begin{align*}
-  A(\omega) &= \frac{1}{\pi} \int_0^L e^2x\cos(\omega x) dx \\
+  A(\omega) &= \frac{1}{\pi} \int_0^L e^{2x}\cos(\omega x) dx \\
   &= \frac{1}{\pi} \bigg( \frac{e^{2x}(\omega \sin(\omega x) + 2\cos(\omega x))}{\omega^2 + 4} \bigg) \bigg|_0^L \\
   &= \frac{1}{\pi} \bigg( \frac{e^{2x}(\omega \sin(\omega x) + 2\cos(\omega x)) - 2}{\omega^2 + 4} \bigg) \bigg|_0^L \\
-  B(\omega) &= \frac{1}{\pi} \int_0^L e^2x\sin(\omega x) dx \\
+  &= \frac{1}{\pi} \frac{e^{2L}(\omega \sin(L\omega) + 2\cos(L\omega)) - 2}{\omega^2 + 4} \\
+  B(\omega) &= \frac{1}{\pi} \int_0^L e^{2x}\sin(\omega x) dx \\
   &= \frac{1}{\pi} \bigg( \frac{e^{2x}(2\sin(\omega x) - \omega \cos(\omega x))}{\omega^2 + 4} \bigg) \bigg|_0^L \\
-  &= \frac{1}{\pi} \bigg( \frac{e^{2x}(2\sin(\omega x) - \omega \cos(\omega x)) + w}{\omega^2 + 4} \bigg) \bigg|_0^L
+  &= \frac{1}{\pi} \bigg( \frac{e^{2x}(2\sin(\omega x) - \omega \cos(\omega x)) + w}{\omega^2 + 4} \bigg) \bigg|_0^L \\
+  &= \frac{1}{\pi} \frac{e^{2L}(2\sin(L\omega) - \omega \cos(L\omega)) + \omega}{\omega^2 + 4}
 \end{align*}
+Substituting into the series expression,
+$$f(x) = \int_0^{\infty}[\frac{1}{\pi} \frac{e^{2L}(\omega \sin(L\omega) + 2\cos(L\omega)) - 2}{\omega^2 + 4}\cos(\omega x) + \frac{1}{\pi} \frac{e^{2L}(2\sin(L\omega) - \omega \cos(L\omega)) + \omega}{\omega^2 + 4}\sin(\omega x)] d\omega$$
 
 \end{document}
