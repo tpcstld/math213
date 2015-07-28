@@ -1,0 +1,13 @@
+c = 340.29; % Speed of sound (m/s)
+
+L = ; % Length of tube (m)
+
+[x, t] = meshgrid(0:.01:L,0:.2:50);
+p=x*0
+n = 1;
+while n <= 100
+    p = p - 2 .* L / pi / n .* sin(pi .* n / L .* x ) .* cos(pi .* n .* c / L .* t);
+    n = n + 1;
+end
+
+mesh(x, t, p)
