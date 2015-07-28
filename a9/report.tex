@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+
+%amsmath is a packaged use for typesetting math
+%amsfonts is required for special fonts, e.g. blackboard bold (for denoting real numbers, etc.)
+\usepackage{amsmath,amsfonts}
+
+\usepackage{fullpage,url,amssymb,epsfig,color,xspace}
+
+\begin{document}
+\begin{center}
+{\Large\bf University of Waterloo}\\
+\vspace{3mm}
+{\Large\bf MATH 213, Spring 2015}\\
+\vspace{2mm}
+{\Large\bf Assignment 9}\\
+\end{center}
+
+\section*{Simulation}
+
+The three included pictures \texttt{derv1.jpg}, \texttt{derv2.jpg}, and \texttt{derv3.jpg} show the derivation of the pressure equation. In summary,
+
+$$p(x, t) = \sum_{n = 1}^{\infty} - \frac{8L}{(2n - 1)^2 \pi^2}
+\cos\bigg(\frac{\pi (2n - 1)}{2L} x\bigg) \cos\bigg(\frac{\pi (2n - 1)}{2L} ct\bigg)$$
+
+\noindent The length of the tube, $L$, that creates the 440Hz A note is
+\begin{align*}
+    L &= \frac{\lambda}{4} \\
+      &= \frac{c}{4f} \\
+      &= \frac{340.29}{4 * 440} \tag{c given by Google} \\
+      &= 0.1933 \text{m} \tag{approx}
+\end{align*}
+
+\noindent See included \texttt{har[1, 5, 10, 20].wav} files for the sound of 1, 5, 10, 20 harmonics being retained, respectively.
+
+\noindent See \texttt{solver.m} for the Matlab code used to generate the \texttt{.wav} files.
+
+\end{document}
